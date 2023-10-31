@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 //synarthsh pou dhmiourhei dunamiko pinaka analoga me to megethos N pou dinei o xrhsths
-int *array(int N)
+int *array(int N,int randSize)
 {
     int *arr;
     arr = (int *) malloc (N * sizeof(int));
@@ -16,7 +16,7 @@ int *array(int N)
     //arxikopoihsh pinaka me tuxaies times metaksi 0 kai 10
     for (i=0;i<N;i++)
     {
-        *(arr+i)= rand()%10;
+        *(arr+i)= rand()%randSize;
     }
     //emfanish pinaka
     for (i=0;i<N;i++)
@@ -94,10 +94,10 @@ int main()
   srand(time(NULL));  
   int N;
   int freq;//metavlith freq h opoia tha periexei to maxFreq 
- 
+  int randSize=10;
   printf("Give the size of the array: ");
   scanf("%d",&N);
-  int* arr=array(N);//dimiourgia pinaka arr megethous N
+  int* arr=array(N,randSize);//dimiourgia pinaka arr megethous N
   int a=mostFrequentNumber(arr,N,&freq);//emfanish tou arithmou me thn megaluterh suxnothta emfanishs kai twn forwn pou proekupse(O(n^2))
   int b=mostFreqNumber(arr,N,&freq);//emfanish tou arithmou me thn megaluterh suxnothta emfanishs kai twn forwn pou proekupse (O(n))
   printf("\n\n\t\t\tTime Complexity: O(n^2)\n");
